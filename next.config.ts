@@ -8,16 +8,16 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          { key: 'Content-Security-Policy', value: "script-src 'self' 'unsafe-eval';" },
-        ],
-      },
-    ];
-  },
+  headers: [
+    {
+      source: '/(.*)',
+      headers: [
+        { key: 'Content-Security-Policy', value: "script-src 'self' 'unsafe-eval'  'unsafe-inline';" },
+      ],
+    },
+  ],
 };
+
+export default nextConfig;
 
 export default nextConfig;
